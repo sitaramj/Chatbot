@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Chatbot</string>
+    <string name="newtork_not_available">No network available</string>
+</resources>
