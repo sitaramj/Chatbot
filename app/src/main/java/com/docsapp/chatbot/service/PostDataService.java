@@ -48,7 +48,7 @@ public class PostDataService extends IntentService {
         @Override
         public void onSuccess(Message message) {
             String notificationText = "Your message has been posted";
-            myNotification = new NotificationCompat.Builder(getApplicationContext()).setContentTitle("Message sent")
+            myNotification = new NotificationCompat.Builder(getApplicationContext()).setContentTitle(getString(R.string.app_name))
                     .setContentText(notificationText).setTicker("Notification!").setWhen(System.currentTimeMillis())
                     .setDefaults(Notification.DEFAULT_SOUND).setAutoCancel(true).setSmallIcon(R.drawable.notification)
                     .build();
