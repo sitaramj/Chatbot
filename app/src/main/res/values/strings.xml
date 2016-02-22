@@ -1,4 +1,7 @@
 <resources>
-    <string name="app_name">Chatbot</string>
-    <string name="newtork_not_available">No network, Message will be posted.</string>
+    <string name="app_name">ChatBot</string>
+    <string name="newtork_not_available">No network connection available</string>
+    <string name="ok">Ok.</string>
+    <string name="cancel">Cancel</string>
+    <string name="message">Your message is saved and will be posted when you will get network connectivity</string>
 </resources>

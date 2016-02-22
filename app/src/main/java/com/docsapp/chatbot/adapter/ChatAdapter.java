@@ -55,11 +55,13 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatViewHolder
                 holder.userChat.setText(chat.getMessage());
                 holder.botChat.setVisibility(View.GONE);
                 holder.userChat.setVisibility(View.VISIBLE);
+                holder.userChat.setBackgroundResource(R.drawable.msg_out);
 
             } else {
                 holder.botChat.setText(chat.getMessage());
                 holder.userChat.setVisibility(View.GONE);
                 holder.botChat.setVisibility(View.VISIBLE);
+                holder.botChat.setBackgroundResource(R.drawable.msg_in);
             }
         }
 

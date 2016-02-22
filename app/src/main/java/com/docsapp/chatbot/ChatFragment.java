@@ -1,8 +1,10 @@
 package com.docsapp.chatbot;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -43,6 +45,7 @@ public class ChatFragment extends Fragment implements View.OnClickListener {
         adapter = new ChatAdapter(getContext());
         chatList.setAdapter(adapter);
         loadMessages();
+        System.currentTimeMillis();
         return view;
     }
 
@@ -63,6 +66,8 @@ public class ChatFragment extends Fragment implements View.OnClickListener {
                     postMessage();
                 else {
                     Utility.saveDataToPreference(getActivity(), messageText.getText().toString(), Constants.PENDING_POST_MESSAGE);
+                    showNetworkDialog();
+                    messageText.setText("");
                 }
                 break;
             default:
@@ -106,8 +111,25 @@ public class ChatFragment extends Fragment implements View.OnClickListener {
 
         @Override
         public void onError() {
-            // Toast.makeText(getContext(), "Message could not be posted ", Toast.LENGTH_LONG).show();
         }
     };
+
+    private void showNetworkDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+
+
+        builder.setPositiveButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+
+                dialog.dismiss();
+            }
+        });
+
+        builder.setMessage(getString(R.string.message));
+        builder.setTitle(getString(R.string.app_name));
+        AlertDialog dialog = builder.create();
+
+        dialog.show();
+    }
 
 }
